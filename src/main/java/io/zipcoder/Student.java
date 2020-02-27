@@ -53,4 +53,8 @@ public class Student {
 
         return scores;
     }
+
+    public String addExamScore(double examScore){
+        return null;
+    }
 }

@@ -45,4 +45,18 @@ public class StudentTest {
     @Test
     public void testGetExamScores() {
     }
+
+    @Test
+    public void addExamScore() {
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = { };
+        Student student = new Student(firstName, lastName, examScores);
+
+
+        student.addExamScore(100.0);
+        String output = student.getExamScores();
+        String actual = "Exam Scores: \nExam 1 -> 100\n";
+        Assert.assertEquals(output, actual);
+    }
 }
