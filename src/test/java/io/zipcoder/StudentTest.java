@@ -11,9 +11,7 @@ public class StudentTest {
         String lastName = "Hunter";
         Double[] examScores = { 100.0, 95.0, 123.0, 96.0 };
         Student student = new Student(firstName, lastName, examScores);
-
         String output = student.getExamScores();
-
         String expected = "Exam Scores: \nExam 1 -> 100 \nExam 2 -> 95 \nExam 3 -> 123 \nExam 4 -> 96 \n";
         Assert.assertEquals(expected,output);
     }
@@ -38,8 +36,11 @@ public class StudentTest {
 
     @Test
     public void getNumberOfExamsTaken() {
-        Student student= new Student("jay", "spins", new Double[]{4.0, 12.6, 27.5, 8.9});
-        Assert.assertTrue(4 == student.getNumberOfExamsTaken());
+        Student student= new Student("jay", "doss", new Double[0]);
+        student.addExamScore(100.0);
+        Integer expected = 1;
+        Integer actual = student.getNumberOfExamsTaken();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -59,4 +60,36 @@ public class StudentTest {
         String actual = "Exam Scores: \nExam 1 -> 100\n";
         Assert.assertEquals(output, actual);
     }
+
+
+    @Test
+    public void setExamScore() {
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = { 100.0 };
+        Student student = new Student(firstName, lastName, examScores);
+
+        student.setExamScore(1, 150.0);
+        String output = student.getExamScores();
+        String actual = "Exam Scores: \nExam 1 -> 150.0\n";
+
+        Assert.assertEquals(output, actual);
+
+    }
+
+    @Test
+    public void getAverageExamScore() {
+        String firstName = "Leon";
+        String lastName = "Hunter";
+        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+        Student student = new Student(firstName, lastName, examScores);
+
+        double output = student.getAverageExamScore();
+        double actual = 125;
+
+        Assert.assertEquals(output, actual, 0.001);
+    }
+
+
+
 }
