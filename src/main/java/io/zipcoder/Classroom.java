@@ -25,6 +25,12 @@ public class Classroom {
 
     public double getAverageExamScore(){
         Double avgExamScore = 0.0;
+        double count = 0;
+        for(int i = 0; i < students.length; i++){
+            count += students[i].getAverageExamScore();
+            avgExamScore = count/students.length;
+        }
+
         return avgExamScore;
     }
 }
