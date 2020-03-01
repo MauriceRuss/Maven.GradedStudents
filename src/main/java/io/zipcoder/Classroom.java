@@ -48,4 +48,7 @@ public class Classroom {
 
     }
 
+    public void getStudentsByScore(){
+
+    }
 }

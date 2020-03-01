@@ -37,4 +37,12 @@ public class ClassroomTest {
 
        Assert.assertTrue(classroom.getStudents().size()== 1);
     }
+
+    @Test
+    public void removeStudent() {
+    }
+
+    @Test
+    public void getStudentsByScore() {
+    }
 }
