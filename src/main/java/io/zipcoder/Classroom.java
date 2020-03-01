@@ -24,31 +24,28 @@ public class Classroom {
         this.students = new ArrayList<>(30);
     }
     
-    public Student[] getStudent(){
-        ArrayList<Student> studentList = new ArrayList<>();
-        for (Student student: students) {
-            if (student != null)
-                studentList.add(student);
-        }
-        return studentList.toArray(new Student[studentList.size()]);
+    public ArrayList<Student> getStudents(){
+
+        return this.students;
 
     }
 
     public double getAverageExamScore(){
         Double avgExamScore = 0.0;
-        double count = 0;
+        int classSize = students.size();
         for(int i = 0; i < students.size(); i++){
-            Student pupil = students.get(i);
-            count += pupil.getNumberOfExamsTaken();
-            avgExamScore = (pupil.getAverageExamScore() * pupil.getNumberOfExamsTaken());
+            avgExamScore += students.get(i).getAverageExamScore();
+            
         }
-        return avgExamScore;
+        return avgExamScore/classSize;
     }
 
     public void addStudent(Student student){
         students.add(student);
     }
 
+    public void removeStudent(String firstName, String lastName){
 
+    }
 
 }
