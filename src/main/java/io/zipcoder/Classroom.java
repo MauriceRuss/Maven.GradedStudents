@@ -35,7 +35,7 @@ public class Classroom {
         int classSize = students.size();
         for(int i = 0; i < students.size(); i++){
             avgExamScore += students.get(i).getAverageExamScore();
-            
+
         }
         return avgExamScore/classSize;
     }
