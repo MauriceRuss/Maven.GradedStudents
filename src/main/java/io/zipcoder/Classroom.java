@@ -1,9 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Classroom {
     private Integer maxNumberOfStudents=30;
@@ -53,5 +50,25 @@ public class Classroom {
     public List<Student> getStudentsByScore(){
         Collections.sort(students);
         return students;
+    }
+
+    public Map getGradeBook(){
+        Map<Student, String> gradeBook = new HashMap<>();
+        String semGrade = "";
+        for (Student student : students) {
+            if (student.getAverageExamScore() >= 90)
+                semGrade = "A";
+            else if (student.getAverageExamScore() >= 80)
+                semGrade = "B";
+            else if (student.getAverageExamScore() >= 70)
+                semGrade = "C";
+            else if (student.getAverageExamScore() >= 60)
+                semGrade = "D";
+            else
+                semGrade = "F";
+            gradeBook.put(student, semGrade);
+        }
+
+        return gradeBook;
     }
 }

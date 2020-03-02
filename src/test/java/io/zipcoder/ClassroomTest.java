@@ -1,11 +1,13 @@
 package io.zipcoder;
 
+import com.sun.tools.javac.util.ArrayUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class ClassroomTest {
 
@@ -152,4 +154,26 @@ public class ClassroomTest {
     }
 
 
+    @Test
+    public void getGradeBookTest() {
+        Double[] student1Grade = new Double[] {100.0, 95.0};
+        Double[] student2Grade = new Double[] {62.0, 64.0};
+        Double[] student3Grade = new Double[] {70.0, 70.0};
+        Double[] student4Grade = new Double[] {15.0, 45.0};
+        Double[] student5Grade = new Double[] {80.0, 83.0};
+        Student student1 = new Student("Jamie", "Cutrona",student1Grade);
+        Student student2 = new Student("Damon", "Betz", student2Grade);
+        Student student3 = new Student("Jack", "Monahan", student3Grade);
+        Student student4 = new Student("Dan", "Cohoon", student4Grade);
+        Student student5 = new Student("Mike", "Edwards", student5Grade);
+        Student[] students = {student1, student2, student3, student4, student5};
+        Classroom classroom = new Classroom(students);
+
+        Map gradeBook = classroom.getGradeBook();
+        Assert.assertEquals(gradeBook.get(student1),"A");
+        Assert.assertEquals(gradeBook.get(student2),"D");
+        Assert.assertEquals(gradeBook.get(student3),"C");
+        Assert.assertEquals(gradeBook.get(student4),"F");
+        Assert.assertEquals(gradeBook.get(student5),"B");
+    }
 }
