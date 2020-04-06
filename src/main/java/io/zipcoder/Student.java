@@ -59,7 +59,8 @@ public class Student implements Comparable<Student> {
     }
 
     public void setExamScore(int examNumber, double newScore){
-        this.examScores.set(examNumber-1, newScore);
+
+        this.examScores.set(examNumber - 1, newScore);
     }
 
     public Double getAverageExamScore(){

@@ -52,3 +52,5 @@ fabric.properties
 .project
 .classpath
 .settings
+
+target/

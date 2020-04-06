@@ -71,4 +71,7 @@ public class Classroom {
 
         return gradeBook;
     }
+    public void setExamScore(){
+
+    }
 }
